@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Metallic Gold Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #E5C158 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 100%);
+}
+
+.bg-gold-gradient-hover:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #C5A059, #E5C158) 1;
+}
+
+.bg-dark-glass {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.bg-light-glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
