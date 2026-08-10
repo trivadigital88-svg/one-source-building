@@ -27,6 +27,7 @@ export default function AboutPage({ onOpenQuoteModal }) {
 
   return (
     <div className="pt-28 pb-20 font-sans animate-fadeIn">
+    <div className="pt-28 pb-20 font-sans animate-fadeIn">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ElementorBadge widgetName="one_source_about" shortcode='[one_source_section id="about_us"]' />
