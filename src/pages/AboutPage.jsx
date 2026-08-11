@@ -1,3 +1,25 @@
+import React from 'react';
+
+export default function AboutPage({ onOpenQuoteModal }) {
+  // Make sure your team data is defined here!
+  // I added a placeholder array so the build doesn't crash.
+  const team = [
+    { 
+      name: "Placeholder Name", 
+      title: "Placeholder Title", 
+      image: "/path/to/image.jpg", 
+      bio: "Placeholder bio goes here." 
+    }
+    // Add your actual team members back here
+  ];
+
+  return (
+    <div className="w-full">
+      <div className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Leadership Header */}
+          <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 border border-gold-200 px-3 py-1 rounded-full">
               Leadership
             </span>
@@ -5,6 +27,8 @@
               Executive Engineering Board
             </h2>
           </div>
+
+          {/* Team Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((m, idx) => (
               <div key={idx} className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-premium">
@@ -19,8 +43,12 @@
               </div>
             ))}
           </div>
+
         </div>
-        {/* Bottom CTA */}
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="bg-onyx-900 text-white rounded-2xl p-8 lg:p-12 text-center border border-gold-500/30">
           <h2 className="text-3xl font-bold font-display">Partner with One Source Building</h2>
           <p className="text-slate-400 text-sm max-w-xl mx-auto mt-2">
@@ -37,4 +65,3 @@
     </div>
   );
 }
-
