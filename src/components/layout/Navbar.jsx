@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Phone, Mail, MapPin, Search, Menu, X, ChevronDown, 
   Building2, Compass, Wrench, DraftingCompass, Shield, Award
@@ -9,6 +9,7 @@ export default function Navbar({ activePage, setActivePage, onOpenSearch, onOpen
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(null); // 'services' | 'projects' | null
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,29 @@ export default function Navbar({ activePage, setActivePage, onOpenSearch, onOpen
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Keep --header-height in sync with the header's real rendered height.
+  // This changes when the top utility bar hides on scroll, or the mobile
+  // menu opens/closes — so <main> always knows exactly how much space to reserve.
+  useEffect(() => {
+    if (!headerRef.current) return;
+
+    const updateHeight = () => {
+      if (headerRef.current) {
+        document.documentElement.style.setProperty(
+          '--header-height',
+          `${headerRef.current.offsetHeight}px`
+        );
+      }
+    };
+
+    updateHeight();
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(headerRef.current);
+
+    return () => observer.disconnect();
+  }, [isScrolled, mobileMenuOpen]);
 
   const navLinks = [
     { name: 'Home', id: 'home' },
@@ -45,7 +69,7 @@ export default function Navbar({ activePage, setActivePage, onOpenSearch, onOpen
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans">
       {/* Top Utility Bar */}
       <div className={`bg-onyx-950 text-slate-300 border-b border-slate-800 text-xs py-2 px-4 transition-all duration-300 ${isScrolled ? 'hidden' : 'block'}`}>
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
