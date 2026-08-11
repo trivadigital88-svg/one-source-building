@@ -3,7 +3,7 @@ import { Code, Check, Copy, Layers } from 'lucide-react';
 
 export default function ElementorBadge({ widgetName = 'one_source_hero', shortcode = '[one_source_widget type="hero"]' }) {
   // Set to true if you ever want to display the developer shortcode band again
-  const SHOW_BADGE = true;
+  const SHOW_BADGE = false;
   if (!SHOW_BADGE) return null;
   const [copied, setCopied] = useState(false);
 
