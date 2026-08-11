@@ -26,11 +26,11 @@ export default function AboutPage({ onOpenQuoteModal }) {
 
   return (
     <div className="pt-4 pb-20 font-sans animate-fadeIn">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ElementorBadge widgetName="one_source_about" shortcode='[one_source_section id="about_us"]' />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ElementorBadge widgetName="one_source_about" shortcode='[one_source_section id="about_us"]' />
 
-        {/* Hero Header */}
-        <div className="bg-onyx-950 text-white rounded-3xl p-8 lg:p-16 relative overflow-hidden border border-gold-500/30 shadow-2xl mb-16">
+    {/* Hero Header */}
+      <div className="bg-onyx-950 text-white rounded-3xl p-8 lg:p-16 relative overflow-hidden border border-gold-500/30 shadow-2xl mb-16 mt-8 lg:mt-12">
           <div className="max-w-3xl relative z-10">
             <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-950/80 border border-gold-600/40 px-3.5 py-1 rounded-full">
               Corporate Heritage & Engineering Excellence
