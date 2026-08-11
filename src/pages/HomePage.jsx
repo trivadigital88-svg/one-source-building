@@ -15,12 +15,10 @@ export default function HomePage({ setActivePage, onSelectProject, onOpenQuoteMo
   return (
     <div className="animate-fadeIn">
       {/* Elementor Embed Notification Bar for WordPress Developers */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
-        <ElementorBadge 
-          widgetName="one_source_home_hero"
-          shortcode='[one_source_section id="home_master"]' 
-        />
-      </div>
+      <ElementorBadge 
+        widgetName="one_source_home_hero"
+        shortcode='[one_source_section id="home_master"]' 
+      />
 
       {/* Hero Banner Slider */}
       <HeroSlider setActivePage={setActivePage} onOpenQuoteModal={onOpenQuoteModal} />
