@@ -97,8 +97,11 @@ export default function App() {
         onOpenQuoteModal={() => setQuoteModalOpen(true)}
       />
 
-      {/* Main Page View Container */}
-      <main className="flex-grow">
+      {/* Main Page View Container
+          paddingTop reserves exactly as much space as the fixed header
+          currently occupies (synced live via --header-height in Navbar.jsx),
+          so no page has to add its own top-clearance hacks. */}
+      <main className="flex-grow" style={{ paddingTop: 'var(--header-height, 124px)' }}>
         {renderActivePage()}
       </main>
 
